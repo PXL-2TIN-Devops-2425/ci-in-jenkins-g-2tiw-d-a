@@ -14,7 +14,9 @@ pipeline {
             }
         }
         stage('Install Dependencies') {
-            sh 'npm install'
+            steps { 
+                sh 'npm install' 
+            }
         }
     }
 }
