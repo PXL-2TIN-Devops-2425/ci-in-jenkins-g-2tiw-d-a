@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'TINnode-devops'
+    }
     stages {
         stage('Fetching Source') {
             steps {
@@ -9,6 +12,9 @@ pipeline {
                         credentialsId: '8f791c44-e89e-4931-bd98-7486e7be9271'
                 }
             }
+        }
+        stage('Install Dependencies') {
+            sh 'npm install'
         }
     }
 }
