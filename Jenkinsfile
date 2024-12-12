@@ -1,9 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('opdracht 5') {
+        stage('Fetching Source') {
             steps {
-                echo "good luck..."
+                script {
+                    git branch: 'main',
+                        url: 'github.com:adewandre/calculator-app-finished.git',
+                        credentialsId: '8f791c44-e89e-4931-bd98-7486e7be9271'
+                }
             }
         }
     }
