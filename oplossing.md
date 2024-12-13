@@ -3,7 +3,7 @@ opmaak met Markdown.
 
 
 a) 
-Via ssh hebben we een connectie gemaakt tussen Jenkins & Github, waarna we een fork maakten van de calculcator app en deze in een eerste stage aanroepen in onze pipeline.
+Via ssh hebben we een connectie gemaakt tussen Jenkins & Github, waarna we een fork maakten van de calculcator app en de broncode binnenhalen in de pipeline.
 Dit deden we door middel van de github credentials die we in Jenkins hadden toegevoegd.
 
 
@@ -22,6 +22,17 @@ Hiermee gebruikte we de laatste beschikbare LTS versie van NodeJS.
 
 
 c)
+Na het binnenhalen van de broncode installeren we alle benodigde NodeJS dependencies met npm install.
+Vervolgens runnen we de tests met npm test en wordt een JUnit rapport gegenereerd en gekoppeld aan de build.
+We maken een map bundle aan waarin we enkel de noodzakelijke bestanden voor de werkende app in kopieren.
+Deze wordt gecromprimeerd naar een .zip bestand en als artifact gearchiveerd.
+Als de pipeline zou falen, wordt een foutmelding met datum en tijd geschreven naar een bestand jenkinserrorlog in de homefolder.
+De build kan meermaals na elkaar succesvol uitgevoerd worden.
+
+![Testresults](https://github.com/user-attachments/assets/a7dd64fd-be25-4c89-9c87-87358e36a60c)
+![MultipleBuilds](https://github.com/user-attachments/assets/5bd7124c-cf13-4f64-afbb-3a1e2595cc39)
+![Bundle+tests](https://github.com/user-attachments/assets/0b3b4248-fb69-47f7-a5b7-f9f6beb198d0)
+
 
 
 d)
