@@ -36,3 +36,10 @@ De build kan meermaals na elkaar succesvol uitgevoerd worden.
 
 
 d)
+Om ervoor te zorgan dat de pipeline elke vrijdag om 14:00 een build draait, hebben we een build trigger in jenkins geactiveerd.
+Via een cron expressie (0 14**5) hebben we de optie build periodically ingeschakkeld. de 0 wijst op de 0e seconde van de minuut waarop de build start (zijnde stipt aan de start, niet uitgespreid).
+14 staat voor het uur 14u, het eerste *'tje wijst op alle dagen van de maand, het tweede *'tje op alle maanden van het jaar. 5 staat voor de 5" dag van de week (vrijdag).
+
+![Trigger build](https://github.com/user-attachments/assets/9e72cbee-ec9d-4dd4-b218-d9929c805460)
+
+
